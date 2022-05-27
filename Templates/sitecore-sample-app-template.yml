@@ -51,7 +51,8 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: https://bitbucket.org/stylelabsdev/sitecore.dotnetsampleapp/src/master/
+        url: https://bitbucket.org/stylelabsdev/vim-test/src/master/
+        #url: https://bitbucket.org/stylelabsdev/sitecore.dotnetsampleapp/src/master/  #Unauthorized
         # values:
           # name: ${{ parameters.name }}
           # owner: ${{ parameters.owner }}
