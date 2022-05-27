@@ -43,8 +43,8 @@ spec:
           ui:options:
             allowedHosts:
               #- github.com
-              - bitbucket.org/stylelabsdev
-
+              - bitbucket.org
+              
   # here's the steps that are executed in series in the scaffolder backend
   steps:
     - id: fetch-base
@@ -67,7 +67,7 @@ spec:
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ['bitbucket.org/stylelabsdev']
+        allowedHosts: ['bitbucket.org']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
 
