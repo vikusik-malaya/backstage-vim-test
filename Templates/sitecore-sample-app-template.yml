@@ -53,9 +53,9 @@ spec:
       input:
         #url: https://bitbucket.org/stylelabsdev/vim-test
         url: https://bitbucket.org/stylelabsdev/sitecore.dotnetsampleapp
-        # values:
-          # name: ${{ parameters.name }}
-          # owner: ${{ parameters.owner }}
+        values:
+          name: ${{ parameters.name }}
+          owner: ${{ parameters.owner }}
 
     # - id: fetch-docs
       # name: Fetch Docs
