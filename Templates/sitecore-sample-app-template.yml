@@ -32,6 +32,15 @@ spec:
           ui:options:
             allowedKinds:
               - Group
+        system:
+          title: System
+          type: string
+          description: System of the component
+          ui:field: EntityPicker
+          ui:options:
+            allowedKinds:
+              - System
+            defaultKind: System
     - title: Choose a location
       required:
         - repoUrl
@@ -44,6 +53,19 @@ spec:
             allowedHosts:
               #- github.com
               - bitbucket.org
+    - title: Component Configuration
+      required:
+        - envs
+      properties:
+        envs:
+          title: Environments
+          type: string
+          enum:
+            - dev
+            - qa
+            - staging
+            - pre-prod
+            - prod
               
   # here's the steps that are executed in series in the scaffolder backend
   steps:
