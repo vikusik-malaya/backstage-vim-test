@@ -55,17 +55,28 @@ spec:
               - bitbucket.org
     - title: Component Configuration
       required:
-        - envs
+        - devenv
       properties:
-        envs:
-          title: Environments
+        devenv:
+          title: dev
           type: boolean
-          enum:
-            - dev
-            - qa
-            - staging
-            - pre-prod
-            - prod
+          default: false
+        qaenv:
+          title: qa
+          type: boolean
+          default: false
+        stagingenv:
+          title: staging
+          type: boolean
+          default: false
+        preprodenv:
+          title: pre-prod
+          type: boolean
+          default: false
+        prod:
+          title: prod
+          type: boolean
+          default: false
               
   # here's the steps that are executed in series in the scaffolder backend
   steps:
