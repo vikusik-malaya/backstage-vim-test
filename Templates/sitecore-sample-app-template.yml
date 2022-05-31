@@ -59,7 +59,7 @@ spec:
       properties:
         envs:
           title: Environments
-          type: string
+          type: boolean
           enum:
             - dev
             - qa
