@@ -51,7 +51,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              #- github.com
+              - github.com
               - bitbucket.org
     - title: Component Configuration
       required:
@@ -85,7 +85,8 @@ spec:
       action: fetch:template
       input:
         #url: https://bitbucket.org/stylelabsdev/vim-test
-        url: https://bitbucket.org/stylelabsdev/sitecore.dotnetsampleapp
+        #url: https://bitbucket.org/stylelabsdev/sitecore.dotnetsampleapp
+        url: https://github.com/Sitecore-PD-Sandbox/sitecore.dotnetsampleapp2
         values:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
@@ -99,9 +100,11 @@ spec:
 
     - id: publish
       name: Publish
-      action: publish:bitbucket
+      #action: publish:bitbucket
+      action: publish:github
       input:
-        allowedHosts: ['bitbucket.org']
+        #allowedHosts: ['bitbucket.org', 'github.com']
+        allowedHosts: ['github.com']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
 
