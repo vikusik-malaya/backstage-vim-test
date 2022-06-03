@@ -52,7 +52,7 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
-              - bitbucket.org
+              # - bitbucket.org
     - title: Component Configuration
       required:
         - devenv
@@ -84,8 +84,8 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        #url: https://bitbucket.org/stylelabsdev/vim-test
-        #url: https://bitbucket.org/stylelabsdev/sitecore.dotnetsampleapp
+        # url: https://bitbucket.org/stylelabsdev/vim-test
+        # url: https://bitbucket.org/stylelabsdev/sitecore.dotnetsampleapp
         url: https://github.com/Sitecore-PD-Sandbox/sitecore.dotnetsampleapp2
         values:
           name: ${{ parameters.name }}
