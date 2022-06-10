@@ -86,9 +86,9 @@ spec:
       input:
         # url: https://bitbucket.org/stylelabsdev/vim-test
         # url: https://bitbucket.org/stylelabsdev/sitecore.dotnetsampleapp
-        url: https://github.com/Sitecore-PD-Sandbox/sitecore.dotnetsampleapp2
+        # url: https://github.com/Sitecore-PD-Sandbox/sitecore.dotnetsampleapp2
         # url: https://github.com/vim_sitecore/vim_test_repo
-        # url: https://github.com/vikusik-malaya/test
+        url: https://github.com/vikusik-malaya/test
         values:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
