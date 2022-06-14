@@ -3,7 +3,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
-  name: sitecore-dotnet-sample-app-enteprise
+  name: sc-dotnet-sample-app
   title: Sitecore Dotnet Sample App Enterprise
   description: Sitecore Dotnet Sample App
 spec:
