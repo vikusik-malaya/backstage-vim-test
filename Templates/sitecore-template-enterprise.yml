@@ -1,0 +1,123 @@
+# Notice the v1beta3 version
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+# some metadata about the template itself
+metadata:
+  name: sitecore-dotnet-sample-app
+  title: Sitecore Dotnet Sample App
+  description: Sitecore Dotnet Sample App
+spec:
+  owner: backstage/techdocs-core
+  type: service
+
+  # these are the steps which are rendered in the frontend with the form input
+  parameters:
+    - title: Fill in some steps
+      required:
+        - name
+        - owner
+      properties:
+        name:
+          title: Component Name
+          type: string
+          description: Unique name of the component
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+        system:
+          title: System
+          type: string
+          description: System of the component
+          ui:field: EntityPicker
+          ui:options:
+            allowedKinds:
+              - System
+            defaultKind: System
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+              # - bitbucket.org
+    - title: Component Configuration
+      required:
+        - devenv
+      properties:
+        devenv:
+          title: dev
+          type: boolean
+          default: false
+        qaenv:
+          title: qa
+          type: boolean
+          default: false
+        stagingenv:
+          title: staging
+          type: boolean
+          default: false
+        preprodenv:
+          title: pre-prod
+          type: boolean
+          default: false
+        prod:
+          title: prod
+          type: boolean
+          default: false
+              
+  # here's the steps that are executed in series in the scaffolder backend
+  steps:
+    - id: fetch-base
+      name: Fetch Base
+      action: fetch:template
+      input:
+        # url: https://bitbucket.org/stylelabsdev/vim-test
+        # url: https://bitbucket.org/stylelabsdev/sitecore.dotnetsampleapp
+        # url: https://github.com/Sitecore-PD-Sandbox/sitecore.dotnetsampleapp2
+        # url: https://github.com/vim_sitecore/vim_test_repo
+        url: https://github.com/vikusik-malaya/test
+        values:
+          name: ${{ parameters.name }}
+          owner: ${{ parameters.owner }}
+
+    # - id: fetch-docs
+      # name: Fetch Docs
+      # action: fetch:plain
+      # input:
+        # targetPath: ./community
+        # url: https://github.com/backstage/community/tree/main/backstage-community-sessions
+
+    - id: publish
+      name: Publish
+      #action: publish:bitbucket
+      action: publish:github
+      input:
+        #allowedHosts: ['bitbucket.org', 'github.com']
+        allowedHosts: ['github.com']
+        description: This is ${{ parameters.name }}
+        repoUrl: ${{ parameters.repoUrl }}
+
+    # - id: register
+      # name: Register
+      # action: catalog:register
+      # input:
+        # repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        # catalogInfoPath: '/catalog-info.yaml'
+
+  # some outputs which are saved along with the job for use in the frontend
+  output:
+    remoteUrl: ${{ steps.publish.output.remoteUrl }}
+    #entityRef: ${{ steps.register.output.entityRef }}
